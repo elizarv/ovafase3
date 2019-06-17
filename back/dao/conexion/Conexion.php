@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    En lo que a mí respecta, señor Dix, lo imprevisto no existe  \\
+//    Yo <3 Cúcuta  \\
 include_once realpath('../dao/interfaz/IConexion.php');
 
 class Conexion implements IConexion{

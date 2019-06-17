@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    ¡Santos frameworks Batman!  \\
+//    Puedes sugerirnos frases nuevas, se nos están acabando ( u.u)  \\
 
 include_once realpath('../dao/conexion/Conexion.php');
 include_once realpath('../dao/interfaz/IFactoryDao.php');

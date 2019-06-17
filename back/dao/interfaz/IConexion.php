@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    Si he visto más lejos es porque estoy sentado sobre los hombros de gigantes.  \\
+//    No quiero morir sin tener cicatrices.  \\
 
 interface IConexion {
 

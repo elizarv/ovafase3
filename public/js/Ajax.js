@@ -4,7 +4,7 @@
               ------------------------
  */
 
-//    ¿En serio? ¿Tantos buenos frameworks y estás usando Anarchy?  \\
+//    ¡Oh! (°o° ) ¡es Fredy Arciniegas, el intelectualoide millonario!  \\
         var READY_STATE_UNINITIALIZED=0; 
         var READY_STATE_LOADING=1; 
         var READY_STATE_LOADED=2;
@@ -45,9 +45,9 @@
 
     function enviar(formData,url,func){
      
-	 $.post(url,formData, function(result,state){
+   $.post(url,formData, function(result,state){
          func(result,state);
      });    
     }
 
-//That´s all folks!
+//That`s all folks!

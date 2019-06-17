@@ -25,9 +25,9 @@ var board=[]; var xAnswer=5; answer=[]; rows=6; cols=10; xKey=-1; yKey=-1; anima
 var words=["Q0lDTE9ERVZJREE","UkVRVUVSSU1JRU5UT1M","QU5BTElTSVNZRElTRdFP","UFJVRUJBUw","Q0FTQ0FEQQ","RVNQSVJBTA"];
 var c=[11,14,15,7,7,7];
 var defs=["Conjunto de las diferentes etapas de un software por el cual éste debe pasar para lograr un correcto funcionamiento","La etapa en la que se extraen los requisitos del producto es la etapa de:","Etapa en la que se utiliza la información recolectada para diseñar un modelo o especificaciones delel producto o sus componentes","Asegurar que los componentes individuales del sistema cumplasn con las especificaciones hace parte de la etapa de:","Modelo de ciclo de vida en el que no se puede avanzar a la siguiente etapa sin haber terminado todas las tareas de la etapa anterior.","Modelo que consiste de un conjunto de ciclos progresivos en los cuales se identifican los objetivos, propuestas y alternativas de implementación"];
-var wDefs=350; posCheck=[];
+var wDefs=500; posCheck=[];
 var answers=[]; letters=[]; indexLetters=0; xSel=-1; ySel=-1; iLetter=-1; jLetter=-1;
-var wordsGame="aW5Tb3BhMTYwNjIwMTkyMDI5NDQ"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+var wordsGame="aW5Tb3BhMTcwNjIwMTkwODI4MTQ"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 function giveZindex(typeElement){var valueZindex=0; capas=document.getElementsByTagName(typeElement);
 for (i=0;i<capas.length;i++){if (parseInt($(capas[i]).css("z-index"),10)>valueZindex){valueZindex=parseInt($(capas[i]).css("z-index"),10);}}return valueZindex;}
 var numCols=16; numRows=16; sizeCell=20;

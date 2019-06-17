@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    La primera regla de Anarchy es no hablar de Anarchy  \\
+//    Quédate con quien te quiera por tu back-end, no por tu front-end  \\
     require_once realpath('../dao/factory/FactoryDao.php');
 
 /**

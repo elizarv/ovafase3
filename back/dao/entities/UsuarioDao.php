@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    Antes que me hubiera apasionado por mujer alguna, jugué mi corazón al azar y me lo ganó la Violencia.  \\
+//    Trabajo individual singifica ganancia individual  \\
 
 include_once realpath('../dao/interfaz/IUsuarioDao.php');
 include_once realpath('../dto/Usuario.php');
@@ -35,38 +35,13 @@ $password=$usuario->getPassword();
 
       try {
           $sql= "INSERT INTO `usuario`( `codigo`, `nombre`, `apellidos`, `password`)"
-          ."VALUES ('$codigo','$nombre','$apellidos','$nota','$password')";
+          ."VALUES ('$codigo','$nombre','$apellidos','$password')";
           return $this->insertarConsulta($sql);
       } catch (SQLException $e) {
           throw new Exception('Primary key is null');
       }
   }
 
-
-
-public function login($usuario){
-      $username=$usuario->getUsername();
-$password=$usuario->getPassword();
-
-      $usuario = new Usuario();
-      try {
-          $sql= "SELECT `codigo`, `password`, `nombre`, `apellidos`"
-          ."FROM `usuario`"
-          ."WHERE `codigo`='$username' AND`password`='$password'";
-          $data = $this->ejecutarConsulta($sql);
-          for ($i=0; $i < count($data) ; $i++) {
-          $usuario->setUsername($data[$i]['username']);
-          $usuario->setPassword($data[$i]['password']);
-          $usuario->setNombre($data[$i]['nombre']);
-          $usuario->setTipo($data[$i]['tipo']);
-
-      return $usuario;
-          }
-      } catch (SQLException $e) {
-          throw new Exception('Primary key is null');
-      return null;
-      }
-  }
     /**
      * Busca un objeto Usuario en la base de datos.
      * @param usuario objeto con la(s) llave(s) primaria(s) para consultar
@@ -77,7 +52,7 @@ $password=$usuario->getPassword();
       $codigo=$usuario->getCodigo();
 
       try {
-          $sql= "SELECT `codigo`, `nombre`, `apellidos`, `nota`, `intentos`"
+          $sql= "SELECT `codigo`, `nombre`, `apellidos`, `nota`, `intentos`, `password`"
           ."FROM `usuario`"
           ."WHERE `codigo`='$codigo'";
           $data = $this->ejecutarConsulta($sql);
@@ -87,6 +62,7 @@ $password=$usuario->getPassword();
           $usuario->setApellidos($data[$i]['apellidos']);
           $usuario->setNota($data[$i]['nota']);
           $usuario->setIntentos($data[$i]['intentos']);
+          $usuario->setPassword($data[$i]['password']);
 
           }
       return $usuario;      } catch (SQLException $e) {
@@ -107,9 +83,10 @@ $nombre=$usuario->getNombre();
 $apellidos=$usuario->getApellidos();
 $nota=$usuario->getNota();
 $intentos=$usuario->getIntentos();
+$password=$usuario->getPassword();
 
       try {
-          $sql= "UPDATE `usuario` SET`codigo`='$codigo' ,`nombre`='$nombre' ,`apellidos`='$apellidos' ,`nota`='$nota' ,`intentos`='$intentos' WHERE `codigo`='$codigo' ";
+          $sql= "UPDATE `usuario` SET`codigo`='$codigo' ,`nombre`='$nombre' ,`apellidos`='$apellidos' ,`nota`='$nota' ,`intentos`='$intentos' ,`password`='$password' WHERE `codigo`='$codigo' ";
          return $this->insertarConsulta($sql);
       } catch (SQLException $e) {
           throw new Exception('Primary key is null');
@@ -141,7 +118,7 @@ $intentos=$usuario->getIntentos();
   public function listAll(){
       $lista = array();
       try {
-          $sql ="SELECT `codigo`, `nombre`, `apellidos`, `nota`, `intentos`"
+          $sql ="SELECT `codigo`, `nombre`, `apellidos`, `nota`, `intentos`, `password`"
           ."FROM `usuario`"
           ."WHERE 1";
           $data = $this->ejecutarConsulta($sql);
@@ -152,6 +129,7 @@ $intentos=$usuario->getIntentos();
           $usuario->setApellidos($data[$i]['apellidos']);
           $usuario->setNota($data[$i]['nota']);
           $usuario->setIntentos($data[$i]['intentos']);
+          $usuario->setPassword($data[$i]['password']);
 
           array_push($lista,$usuario);
           }

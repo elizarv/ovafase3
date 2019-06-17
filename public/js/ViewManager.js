@@ -4,9 +4,12 @@
               ------------------------
  */
 
-//    Yo <3 Cúcuta  \\
+//    ¿Generar buen código o poner frases graciosas? ¡La frase! ¡La frase!  \\
+
+var rutaBack = 'back/controller/Router.php';
+
 /** Valida los campos requeridos en un formulario
- * Returns flag Devuelve true si el form cuenta con los datos mínimos requeridos
+ * Returns flag Devuelve true si el form cuenta con los datos mÃ­nimos requeridos
  */
 function validarForm(idForm){
 	var form=$('#'+idForm)[0];
@@ -19,82 +22,58 @@ function validarForm(idForm){
 	return true;
 }
 
-////////// ACCIONISTAS \\\\\\\\\\
-function preAccionistasInsert(idForm){
-     //Haga aquí las validaciones necesarias antes de enviar el formulario.
+////////// USUARIO \\\\\\\\\\
+function preUsuarioInsert(idForm){
+     //Haga aquÃ­ las validaciones necesarias antes de enviar el formulario.
 	if(validarForm(idForm)){
  	var formData=$('#'+idForm).serialize();
- 	enviar(formData,'../back/controller/accionistas/AccionistasInsert.php',postAccionistasInsert);
+ 	enviar(formData, rutaBack ,postUsuarioInsert);
  	}else{
  		alert("Debe llenar los campos requeridos");
  	}
 }
 
- function postAccionistasInsert(result,state){
-     //Maneje aquí la respuesta del servidor.
-     //Consideramos buena práctica no manejar código HTML antes de este punto.
+ function postUsuarioInsert(result,state){
+    console.log("postusuario");
+    alert(result);
+     //Maneje aquÃ­ la respuesta del servidor.
+     //Consideramos buena prÃ¡ctica no manejar cÃ³digo HTML antes de este punto.
  		if(state=="success"){
                      if(result=="true"){            
- 			alert("Accionistas registrado con éxito");
+ 			alert("Usuario registrado con Éxito");
                      }else{
-                        alert("Hubo un errror en la inserción ( u.u)\n"+result);
+                        alert("Hubo un errror en la inserciÃ³n ( u.u)\n"+result);
                      } 		}else{
  			alert("Hubo un errror interno ( u.u)\n"+result);
  		}
 }
 
-function preAccionistasList(container){
-     //Solicite información del servidor
-     cargaContenido(container,'AccionistasList.html'); 
- 	enviar("",'../back/controller/accionistas/AccionistasList.php',postAccionistasList); 
+function preUsuarioList(container){
+     //Solicite informaciÃ³n del servidor
+     cargaContenido(container,'UsuarioList.html'); 
+     var formData = {};
+     formData["ruta"]="UsuarioList";
+ 	enviar(formData, rutaBack ,postUsuarioList); 
 }
 
- function postAccionistasList(result,state){
-     //Maneje aquí la respuesta del servidor.
+ function postUsuarioList(result,state){
+     //Maneje aquÃ­ la respuesta del servidor.
      if(state=="success"){
-        document.getElementById("AccionistasList").innerHTML=result;
+         var json=JSON.parse(result);
+         if(json[0].msg=="exito"){
+
+            for(var i=1; i < Object.keys(json).length; i++) {   
+                var Usuario = json[i];
+                //----------------- Para una tabla -----------------------
+                document.getElementById("UsuarioList").appendChild(createTR(Usuario));
+                //-------- Para otras opciones ver htmlBuilder.js ---------
+            }
+         }else{
+            alert(json[0].msg);
+         }
      }else{
- 		alert("Hubo un errror interno ( u.u)\n"+result);
+         alert("Hubo un errror interno ( u.u)\n"+result);
      }
 }
 
-////////// PERIODO \\\\\\\\\\
-function prePeriodoInsert(idForm){
-     //Haga aquí las validaciones necesarias antes de enviar el formulario.
-	if(validarForm(idForm)){
- 	var formData=$('#'+idForm).serialize();
- 	enviar(formData,'../back/controller/periodo/PeriodoInsert.php',postPeriodoInsert);
- 	}else{
- 		alert("Debe llenar los campos requeridos");
- 	}
-}
-
- function postPeriodoInsert(result,state){
-     //Maneje aquí la respuesta del servidor.
-     //Consideramos buena práctica no manejar código HTML antes de este punto.
- 		if(state=="success"){
-                     if(result=="true"){            
- 			alert("Periodo registrado con éxito");
-                     }else{
-                        alert("Hubo un errror en la inserción ( u.u)\n"+result);
-                     } 		}else{
- 			alert("Hubo un errror interno ( u.u)\n"+result);
- 		}
-}
-
-function prePeriodoList(container){
-     //Solicite información del servidor
-     cargaContenido(container,'PeriodoList.html'); 
- 	enviar("",'../back/controller/periodo/PeriodoList.php',postPeriodoList); 
-}
-
- function postPeriodoList(result,state){
-     //Maneje aquí la respuesta del servidor.
-     if(state=="success"){
-        document.getElementById("PeriodoList").innerHTML=result;
-     }else{
- 		alert("Hubo un errror interno ( u.u)\n"+result);
-     }
-}
-
-//That´s all folks!
+//That`s all folks!

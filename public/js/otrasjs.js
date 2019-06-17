@@ -1,4 +1,3 @@
-var numero, cc, res;
 
 function cargarRequerimientos(){
 	cargaContenido('remp','pages/requerimientos.html');
@@ -41,7 +40,7 @@ function cargarActividadBaseDatos(){
 }
 
 function cargarActividadCiclo(){
-  window.open("activities/ciclo/inSopa/ciclodevida.html");
+  window.open("activities/ciclo/inSopa17062019082814/ciclodevida.html");
 }
 
 function cargarActividadRequerimientos(){
@@ -64,35 +63,3 @@ function cargarActividadCaso2(){
   window.open("activities/caso2/inPanel16062019230209/caso2.html");
 }
 
-function registrar(){
-  window.open("registrar.html");
-}
-
-function preUsuarioInsert(idForm){
-    //Haga aquí las validaciones necesarias antes de enviar el formulario.
-   if(validarForm(idForm)){
-    var formData=$('#'+idForm).serialize();
-    enviar(formData,'back/controller/usuario/UsuarioInsert.php',postUsuarioInsert);
-    }else{
-        alert("Debe llenar los campos requeridos");
-    }
-}
-
-
-function postUsuarioInsert(result,state){
-    //Maneje aquí la respuesta del servidor.
-    //Consideramos buena práctica no manejar código HTML antes de este punto.
-        if(state=="success"){
-                    if(result=="true"){
-                       swal("Usuario registrado con exito!!", {
-                           icon: "success",
-                         });
-                         preUsuarioList();
-                    }else{
-                       alert("Hubo un errror en la inserción ( u.u)\n"+result);
-                    }
-
-       }else{
-            alert("Hubo un errror interno ( u.u)\n"+result);
-            }
-}

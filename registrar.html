@@ -1,109 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?xml version="1.0" encoding="UTF-8"?>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OVA</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="public/css/fontastic.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css">
-    <!-- Google fonts - Poppins -->
-    <link rel="stylesheet" href="public/fonts/googleapisfonts.css">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="public/css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="public/css/custom.css">
-    <link rel="stylesheet" href="public/css/estilos.css">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="public/img/icon.jpg">
-    <link rel="stylesheet" href="public/css/custom2.css">
-    <link rel="stylesheet" href="public/css/sweetalert.css">
-    <link rel="stylesheet" href="public/css/materialicons.css">
-        <link rel="stylesheet" href="../../css/estilo.css">
-
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>OVA</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS-->
+      <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
+      <!-- Fontastic Custom icon font-->
+      <link rel="stylesheet" href="public/css/fontastic.css">
+      <!-- Font Awesome CSS-->
+      <link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css">
+      <!-- Google fonts - Poppins -->
+      <link rel="stylesheet" href="public/fonts/googleapisfonts.css">
+      <!-- theme stylesheet-->
+      <link rel="stylesheet" href="public/css/style.default.css" id="theme-stylesheet">
+      <!-- Custom stylesheet - for your changes-->
+      <link rel="stylesheet" href="public/css/custom.css">
+      <link rel="stylesheet" href="public/css/estilos.css">
+      <!-- Favicon-->
+      <link rel="shortcut icon" href="public/img/icon.jpg">
+      <link rel="stylesheet" href="public/css/custom2.css">
+      <link rel="stylesheet" href="public/css/sweetalert.css">
+      <link rel="stylesheet" href="public/css/materialicons.css">
+      <link rel="stylesheet" href="../../css/estilo.css">
   </head>
-  <!--<body onload="index_onload()">-->
-    <body onLoad="loadPage()" onbeforeunload="unloadPage()" onUnload="unloadPage()">
-    
-      <div class="wrapper">
-      <!-- Main Navbar-->
-      <header class="header">
+<!--<body onload="index_onload()">-->
+  <body>
 
-        <!-- Main Navbar-->
-        <nav class="navbar" id="navHeader">
-
-          <div class="container-fluid">
-            <div class="navbar-holder d-flex align-items-center justify-content-between">
-              <!-- Navbar Header-->
-              <div class="navbar-header">
-              </div>
-              <!-- Navbar Menu -->
-              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+    <div class="wrapper">
+    <!-- Main Navbar-->
       <div class="page-content ">
         <!-- Side Navbar -->
-             <div class="content-inner">
-          <!-- Page Header-->
+        <div class="content-inner">
+        <!-- Page Header-->
           <div class="content-wrapper">
-          <div class="forms" id="remp" name="remp">
-<section class="forms">
-            <div class="container-fluid">
-              <div class="row">
-       <!-- Form Registrar Usuarios -->
-                <div class="col-lg-4">
-                  <div class="card">
-                   <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Registrar Usuario</h3>
-                    </div>
-                    <div class="card-body">
-                      <form id="registrarUsuario" action="javascript:preUsuarioInsert('registrarUsuario')" method="post">
-                        <div class="form-group">
-                          <label class="form-control-label">Codigo</label>
-                          <input name="username" type="text" placeholder="Ingrese el codigo" class="form-control" required>
+            <div class="forms" id="remp" name="remp">
+              <section class="forms">
+                <div class="container-fluid">
+                  <div class="row">
+                    <!-- Form Registrar Usuarios -->
+                    <div class="col-lg-4">
+                      <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                          <h3 class="h4">Registrar Usuario</h3>
                         </div>
-                        <div class="form-group">
-                          <label class="form-control-label">Contrasena</label>
-                          <input name="password" type="password" placeholder="Ingrese la contrasena" class="form-control" required>
+                        <div class="card-body">
+                          <form id="registrarUsuario" action="javascript:preUsuarioInsert('registrarUsuario')" method="post">
+                            <input name="ruta" type="hidden" placeholder="Ingrese el codigo" class="form-control" value="UsuarioInsert">
+                            <div class="form-group">
+                              <label class="form-control-label">Código</label>
+                              <input name="codigo" type="text" placeholder="Ingrese el codigo" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label">Contraseña</label>
+                              <input name="password" type="password" placeholder="Ingrese la contrasena" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label">Nombre</label>
+                              <input name="nombre" type="text" placeholder="Ingrese el nombre" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label">Apellidos</label>
+                              <input name="apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <input type="submit" value="Registrar" class="btn btn-primary">
+                            </div>
+                          </form>
                         </div>
-                        <div class="form-group">
-                          <label class="form-control-label">Nombre</label>
-                          <input name="nombre" type="text" placeholder="Ingrese el nombre" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                          <label class="form-control-label">Apellidos</label>
-                          <input name="apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                          <input type="submit" value="Registrar" class="btn btn-primary">
-                        </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </div>
-          </section>
-
           </div>
         </div>
       </div>
-        
-        </div>
-        </div>
+    </div>
     <!-- Javascript files-->
 
     <script src="public/js/jquery.min.js"></script>
@@ -114,8 +90,8 @@
     <script src="public/vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="public/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="public/js/sweetalert.min.js"></script>
-    <script src="public/js/ViewManager.js"></script>
     <script src="public/js/Ajax.js"></script>
+    <script src="public/js/ViewManager.js"></script>
     <script src="public/js/otrasjs.js"></script>
   </body>
 </html>

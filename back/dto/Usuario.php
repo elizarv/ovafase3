@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    Ahora con 25% menos groserías  \\
+//    ¿Cuantas frases como esta crees que puedo escribir?  \\
 
 
 class Usuario {
@@ -97,13 +97,20 @@ class Usuario {
   public function setIntentos($intentos){
       $this->intentos = $intentos;
   }
-
+    /**
+     * Devuelve el valor correspondiente a password
+     * @return password
+     */
   public function getPassword(){
       return $this->password;
   }
 
-  public function setPassword($pw){
-      $this->password = $pw;
+    /**
+     * Modifica el valor correspondiente a password
+     * @param password
+     */
+  public function setPassword($password){
+      $this->password = $password;
   }
 
 

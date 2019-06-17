@@ -5,7 +5,7 @@
               ------------------------
  */
 
-//    Tenemos trabajos que odiamos para comprar cosas que no necesitamos.  \\
+//    Ella no te quiere </3 mejor ponte a programar  \\
 
 include_once realpath('../dao/entities/UsuarioDao.php');
 
