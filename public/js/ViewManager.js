@@ -11,6 +11,32 @@ var rutaBack = 'back/controller/Router.php';
 /** Valida los campos requeridos en un formulario
  * Returns flag Devuelve true si el form cuenta con los datos mÃ­nimos requeridos
  */
+function function_datatable(){
+    $('#myTable tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Buscar '+title+'" />' );
+    } );
+    var table = $('#myTable').DataTable(
+                {
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ resultados por pagina",
+                    "zeroRecords": "No encontrado",
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "No disponible",
+                    "infoFiltered": "(filtrado de _MAX_ registros)",
+                    "search": "Buscar: ",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Ultimo",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                }
+            });
+}
+
+
+
 function validarForm(idForm){
 	var form=$('#'+idForm)[0];
 	for (var i = 0; i < form.length; i++) {
@@ -34,16 +60,23 @@ function preUsuarioInsert(idForm){
 }
 
  function postUsuarioInsert(result,state){
-    console.log("postusuario");
-    alert(result);
      //Maneje aquÃ­ la respuesta del servidor.
      //Consideramos buena prÃ¡ctica no manejar cÃ³digo HTML antes de este punto.
  		if(state=="success"){
-                     if(result=="true"){            
- 			alert("Usuario registrado con Éxito");
+                     if(result=="1"){            
+                        swal("Registro exitoso", {
+                            icon: "success",
+                        }).then((value) => {
+                            window.location='login.html';
+                        });  
                      }else{
-                        alert("Hubo un errror en la inserciÃ³n ( u.u)\n"+result);
-                     } 		}else{
+                        swal("Ya se encuentra registrado", {
+                            icon: "error",
+                        }).then((value) => {
+                            window.location='login.html';
+                        });
+                     } 		
+            }else{
  			alert("Hubo un errror interno ( u.u)\n"+result);
  		}
 }
@@ -56,18 +89,21 @@ function preUsuarioList(container){
  	enviar(formData, rutaBack ,postUsuarioList); 
 }
 
+
+
  function postUsuarioList(result,state){
-     //Maneje aquÃ­ la respuesta del servidor.
      if(state=="success"){
          var json=JSON.parse(result);
          if(json[0].msg=="exito"){
-
             for(var i=1; i < Object.keys(json).length; i++) {   
                 var Usuario = json[i];
-                //----------------- Para una tabla -----------------------
-                document.getElementById("UsuarioList").appendChild(createTR(Usuario));
-                //-------- Para otras opciones ver htmlBuilder.js ---------
+                str="<tr><td>"+Usuario.codigo+"</td><td>"+Usuario.nombre+"</td>";
+                str+='<td>'+Usuario.apellidos+'</td>';
+                str+='<td>'+Usuario.intentos+'</td>';
+                str+='<td>'+Usuario.nota+'</td></tr>';
+                document.getElementById("UsuarioList").innerHTML+=str;
             }
+            function_datatable();
          }else{
             alert(json[0].msg);
          }
@@ -76,4 +112,50 @@ function preUsuarioList(container){
      }
 }
 
-//That`s all folks!
+
+
+
+
+function login(idForm){
+  if(validarForm(idForm)){
+  var formData=$('#'+idForm).serialize();
+  enviar(formData, rutaBack ,postLogin);
+  }else{
+    alert("Debe llenar los campos requeridos");
+  }
+}
+
+
+
+function postLogin(result, state){
+    if(result == '1'){
+        location.replace("index.php");
+    }else{
+      window.location="login.html"; 
+    } 
+}
+
+
+function logout(){
+    var formData = {};
+    formData["ruta"] = 'Logout';
+    enviar(formData, rutaBack, postLogout);
+}
+
+
+function postLogout(result, state){
+    window.location = 'login.html';
+}
+
+function save(formData){
+    enviar(formData, '../../../back/controller/router.php', postSave);
+}
+
+
+function postSave(result, state){
+  swal("El test ha terminado", {
+      icon: "warning",
+  }).then((value) => {
+      window.close();
+  });  
+}

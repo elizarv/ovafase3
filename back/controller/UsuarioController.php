@@ -44,5 +44,46 @@ class UsuarioController {
         return "[{$msg},{$rta}]";
     }
 
+    public static function login(){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $usuario = UsuarioFacade::login($username, $password);
+        if($usuario!=null){
+            session_start();
+            $_SESSION["usuario"]=serialize($usuario);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function select(){
+        session_start();
+        $username = unserialize($_SESSION["usuario"])->getCodigo();
+        $usuario = UsuarioFacade::select($username);
+        if($usuario->getNota() != NULL){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function logout(){
+        session_start();
+        session_destroy();
+    }
+
+    public static function save(){
+        session_start();
+        $codigo = unserialize($_SESSION['usuario'])->getCodigo();
+        $nota = $_POST['nota'];
+        $usuario = UsuarioFacade::select($codigo);
+        $intentos = $usuario->getIntentos();
+        $notaAnt = $usuario->getNota();
+        $nota = max($nota, $notaAnt);
+        $usuario = UsuarioFacade::update($codigo, $nota, $intentos+1);
+        return true;
+    }
+
 }
 //That`s all folks!

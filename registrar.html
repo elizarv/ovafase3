@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>OVA</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Bootstrap CSS-->
-      <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
-      <!-- Fontastic Custom icon font-->
-      <link rel="stylesheet" href="public/css/fontastic.css">
-      <!-- Font Awesome CSS-->
-      <link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css">
-      <!-- Google fonts - Poppins -->
-      <link rel="stylesheet" href="public/fonts/googleapisfonts.css">
-      <!-- theme stylesheet-->
-      <link rel="stylesheet" href="public/css/style.default.css" id="theme-stylesheet">
-      <!-- Custom stylesheet - for your changes-->
-      <link rel="stylesheet" href="public/css/custom.css">
-      <link rel="stylesheet" href="public/css/estilos.css">
-      <!-- Favicon-->
-      <link rel="shortcut icon" href="public/img/icon.jpg">
-      <link rel="stylesheet" href="public/css/custom2.css">
-      <link rel="stylesheet" href="public/css/sweetalert.css">
-      <link rel="stylesheet" href="public/css/materialicons.css">
-      <link rel="stylesheet" href="../../css/estilo.css">
-  </head>
-<!--<body onload="index_onload()">-->
-  <body>
+<head>
+            <title>Ova</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="public/img/icon.jpg">
+    <link type="text/css" rel="stylesheet" href="https://divisist2.ufps.edu.co/assets/css/custom.css">
+    <link type="text/css" rel="stylesheet" href="https://divisist2.ufps.edu.co/assets/css/style.css">
+<link rel="stylesheet" href="public/css/sweetalert.css">
+    
+    <link rel="stylesheet" href="public/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="public/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="public/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="public/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="public/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="public/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="public/jvectormap/jquery-jvectormap.css">
+  <link rel="shortcut icon" href="public/img/icon.jpg">
 
-    <div class="wrapper">
-    <!-- Main Navbar-->
-      <div class="page-content ">
-        <!-- Side Navbar -->
-        <div class="content-inner">
-        <!-- Page Header-->
-          <div class="content-wrapper">
-            <div class="forms" id="remp" name="remp">
-              <section class="forms">
-                <div class="container-fluid">
-                  <div class="row">
-                    <!-- Form Registrar Usuarios -->
-                    <div class="col-lg-4">
-                      <div class="card">
-                        <div class="card-header d-flex align-items-center">
-                          <h3 class="h4">Registrar Usuario</h3>
-                        </div>
-                        <div class="card-body">
-                          <form id="registrarUsuario" action="javascript:preUsuarioInsert('registrarUsuario')" method="post">
+
+
+                <link type="text/css" href="activities/inSopa/inSopa_resources/css/ardoraSopa.css" rel="stylesheet" />
+
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+<body class="login-page">
+<div class="login-box2">
+    <div class="login-logo no-margin">
+        <!--<a href="">DIVISIST <strong>2.0</strong></a>-->
+        <img class="img-responsive center-block" src="public/img/registrar.png"/>
+    </div><!-- /.login-logo -->
+    <div class="login-box-body">
+<p class="login-box-msg">Ingresa tus datos para el registro</p>
+<form id="registrarUsuario" action="javascript:preUsuarioInsert('registrarUsuario')" method="post">
                             <input name="ruta" type="hidden" placeholder="Ingrese el codigo" class="form-control" value="UsuarioInsert">
                             <div class="form-group">
                               <label class="form-control-label">Código</label>
@@ -68,31 +62,23 @@
                             <div class="form-group">
                               <input type="submit" value="Registrar" class="btn btn-primary">
                             </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Javascript files-->
+                          </form>    
+<!--About Section-->
+<section id="">
+</section>
+<!--End of About Section-->
 
-    <script src="public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="public/js/jquery.dataTables.min.js"></script>
-    <script scr="public/js/jscolor.js"></script>
-    <script src="public/vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="public/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="public/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="public/js/sweetalert.min.js"></script>
-    <script src="public/js/Ajax.js"></script>
-    <script src="public/js/ViewManager.js"></script>
-    <script src="public/js/otrasjs.js"></script>
-  </body>
+
+            </div><!-- /.login-box -->
+</div>
+
+
+<script type="text/javascript" src="public/js/Ajax.js"></script>
+<script type="text/javascript" src="public/js/ViewManager.js"></script>
+<script type="text/javascript" src="public/js/otrasjs.js"></script>
+<script src="public/js/sweetalert.min.js"></script>
+
+<script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/jquery/jQuery-2.1.3.min.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/adminlte/app.min.js"></script></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/bootstrap/popover_main.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/views/index/main.min.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/views/index/one.app.min.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/plugins/backstretch/jquery.backstretch.min.js"></script><script type="text/javascript" src="https://divisist2.ufps.edu.co/assets/js/views/login/login.min.js"></script></body>
+
+
 </html>
-

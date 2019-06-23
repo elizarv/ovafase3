@@ -79,14 +79,11 @@ $password=$usuario->getPassword();
      */
   public function update($usuario){
       $codigo=$usuario->getCodigo();
-$nombre=$usuario->getNombre();
-$apellidos=$usuario->getApellidos();
 $nota=$usuario->getNota();
 $intentos=$usuario->getIntentos();
-$password=$usuario->getPassword();
 
       try {
-          $sql= "UPDATE `usuario` SET`codigo`='$codigo' ,`nombre`='$nombre' ,`apellidos`='$apellidos' ,`nota`='$nota' ,`intentos`='$intentos' ,`password`='$password' WHERE `codigo`='$codigo' ";
+          $sql= "UPDATE `usuario` SET `nota`='$nota' ,`intentos`='$intentos' WHERE `codigo`='$codigo' ";
          return $this->insertarConsulta($sql);
       } catch (SQLException $e) {
           throw new Exception('Primary key is null');
@@ -120,7 +117,7 @@ $password=$usuario->getPassword();
       try {
           $sql ="SELECT `codigo`, `nombre`, `apellidos`, `nota`, `intentos`, `password`"
           ."FROM `usuario`"
-          ."WHERE 1";
+          ."WHERE codigo <> 'admin'";
           $data = $this->ejecutarConsulta($sql);
           for ($i=0; $i < count($data) ; $i++) {
               $usuario= new Usuario();
@@ -155,6 +152,34 @@ $password=$usuario->getPassword();
           $sentencia = null;
           return $data;
     }
+
+
+
+public function login($usuario){
+      $username=$usuario->getCodigo();
+$password=$usuario->getPassword();
+
+      $usuario = new Usuario();
+      try {
+          $sql= "SELECT `codigo`, `password`, `nombre`, `apellidos`"
+          ."FROM `usuario`"
+          ."WHERE `codigo`='$username' AND`password`='$password'";
+          $data = $this->ejecutarConsulta($sql);
+          for ($i=0; $i < count($data) ; $i++) {
+          $usuario->setCodigo($data[$i]['codigo']);
+          $usuario->setPassword($data[$i]['password']);
+          $usuario->setNombre($data[$i]['nombre']);
+          $usuario->setApellidos($data[$i]['apellidos']);
+
+      return $usuario;
+          }
+      } catch (SQLException $e) {
+          throw new Exception('Primary key is null');
+      return null;
+      }
+  }
+
+
     /**
      * Cierra la conexión actual a la base de datos
      */

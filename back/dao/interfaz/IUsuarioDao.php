@@ -41,6 +41,8 @@ interface IUsuarioDao {
      * @throws NullPointerException Si los objetos correspondientes a las llaves foraneas son null
      */
   public function listAll();
+
+  public function login($usuario);
     /**
      * Cierra la conexión actual a la base de datos
      */

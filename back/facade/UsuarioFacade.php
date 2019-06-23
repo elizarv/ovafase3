@@ -79,13 +79,10 @@ class UsuarioFacade {
    * @param intentos
    * @param password
    */
-  public static function update($codigo, $nombre, $apellidos, $nota, $intentos, $password){
+  public static function update($codigo, $nota, $intentos){
       $usuario = self::select($codigo);
-      $usuario->setNombre($nombre); 
-      $usuario->setApellidos($apellidos); 
       $usuario->setNota($nota); 
       $usuario->setIntentos($intentos); 
-      $usuario->setPassword($password); 
 
      $FactoryDao=new FactoryDao(self::getGestorDefault());
      $usuarioDao =$FactoryDao->getusuarioDao(self::getDataBaseDefault());
@@ -121,6 +118,17 @@ class UsuarioFacade {
      return $result;
   }
 
+  public static function login($username, $password){
+      $usuario = new Usuario();
+      $usuario->setCodigo($username); 
+      $usuario->setPassword($password); 
+
+     $FactoryDao=new FactoryDao(self::getGestorDefault());
+     $usuarioDao =$FactoryDao->getusuarioDao(self::getDataBaseDefault());
+     $result = $usuarioDao->login($usuario);
+     $usuarioDao->close();
+     return $result;
+  }
 
 }
 //That`s all folks!

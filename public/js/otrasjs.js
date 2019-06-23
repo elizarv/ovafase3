@@ -24,31 +24,31 @@ function cargarBaseDatos(){
 }
 
 function cargarActividadIntroduccion(){
-  window.open("activities/inSopa/inSopa.html");
+  window.open("activities/inSopa/inSopa.php");
 }
 
 function cargarActividadClases(){
-  window.open("activities/clases/inPanel/diagramadeclases.html");
+  window.open("activities/clases/inPanel/diagramadeclases.php");
 }
 
 function cargarActividadSecuencia(){
-  window.open("activities/secuencia/inTest/diagramadesecuencia.html");
+  window.open("activities/secuencia/inTest/diagramadesecuencia.php");
 }
 
 function cargarActividadBaseDatos(){
-  window.open("activities/basedatos/inTest/diagramabd.html");
+  window.open("activities/basedatos/inTest/diagramabd.php");
 }
 
 function cargarActividadCiclo(){
-  window.open("activities/ciclo/inSopa17062019082814/ciclodevida.html");
+  window.open("activities/ciclo/inClasi23062019134210/ciclodevida.php");
 }
 
 function cargarActividadRequerimientos(){
-  window.open("activities/requerimientos/inUnir/requerimientos.html");
+  window.open("activities/requerimientos/inUnir/requerimientos.php");
 }
 
 function cargarActividadIntroduccion(){
-  window.open("activities/introduccion/inCW/introduccion.html");
+  window.open("activities/introduccion/inCW/introduccion.php");
 }
 
 function cargarIntroduccion(){
@@ -56,10 +56,17 @@ function cargarIntroduccion(){
 }
 
 function cargarActividadCaso1(){
-  window.open("activities/caso1/inPanel16062019224954/caso1.html");
+  window.open("activities/caso1/inPanel16062019224954/caso1.php");
 }
 
 function cargarActividadCaso2(){
-  window.open("activities/caso2/inPanel16062019230209/caso2.html");
+  window.open("activities/caso2/inPanel16062019230209/caso2.php");
 }
 
+function cargarTest(){
+   cargaContenido('remp','pages/testfinal.html');
+}
+
+function cargarActividadFinal(){
+  window.open("activities/testfinal/inTest21062019152038/testfinal.php");
+}
